@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
     name: 'temp',
-    standalone: true
+    standalone: true,
+    pure: false // will turn off the caching so it will execute every time, but it can have a sugnificate degragation to performance.
 })
 export class TemperaturePipe implements PipeTransform {
     transform(value: string | number | null, inputType: 'cel' | 'fah', outputType?: 'cel' | 'fah') {
