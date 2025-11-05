@@ -23,6 +23,11 @@ export class AppComponent {
     25, 37, 19, -4, 28, 21, 19, 28, 33, 31, 9, 11, 5, -12, -5,
   ];
 
+  // Better way to sort data, still have the option to reset a value, and keeping data in the same sorted pattern since we're not labeling data with unique ids it could cause corruption/confusion.
+  constructor() {
+    this.historicTemperatures.sort((a, b) => a > b ? 1 : -1);
+  }
+
   onReset(index: number) {
     this.historicTemperatures[index] = 18;
     // const newTemps = [...this.historicTemperatures]
